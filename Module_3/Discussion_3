@@ -1,0 +1,22 @@
+using System;
+public class Octopus
+{
+  public string name; { get; }
+  public int Age = 10;
+  public int legs = 8, eyes = 1;
+}
+
+var o = new Octopus ("Jack");
+o.Name.Dump();  
+o.Legs = 20;  // Compile-time error
+
+class Octopus
+{
+  public string Name;
+  public readonly int Legs = 8;
+  
+  public Octopus (string name)
+  {
+    Name = name;
+  }
+}
