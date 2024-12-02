@@ -1,0 +1,51 @@
+using System;
+
+public class Contractor
+{
+    // Properties
+    private string contractorName;
+    private string contractorNumber;
+    private DateTime contractorStartDate;
+
+    // Default Constructor
+    public Contractor()
+    {
+    }
+
+    // Parameterized Constructor
+    public Contractor(string name, string number, DateTime startDate)
+    {
+        contractorName = name;
+        contractorNumber = number;
+        contractorStartDate = startDate;
+    }
+
+    // Accessor and Mutator for ContractorName
+    public string ContractorName
+    {
+        get { return contractorName; }
+        set { contractorName = value; }
+    }
+
+    // Accessor and Mutator for ContractorNumber
+    public string ContractorNumber
+    {
+        get { return contractorNumber; }
+        set { contractorNumber = value; }
+    }
+
+    // Accessor and Mutator for ContractorStartDate
+    public DateTime ContractorStartDate
+    {
+        get { return contractorStartDate; }
+        set { contractorStartDate = value; }
+    }
+
+    // Method to display details
+    public virtual void DisplayDetails()
+    {
+        Console.WriteLine($"Contractor Name: {contractorName}");
+        Console.WriteLine($"Contractor Number: {contractorNumber}");
+        Console.WriteLine($"Contractor Start Date: {contractorStartDate.ToShortDateString()}");
+    }
+}

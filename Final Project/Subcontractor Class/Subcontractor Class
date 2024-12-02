@@ -1,0 +1,55 @@
+public class Subcontractor : Contractor
+{
+    // Additional Properties
+    private int shift; // 1 for day, 2 for night
+    private double hourlyPayRate;
+
+    // Default Constructor
+    public Subcontractor()
+    {
+    }
+
+    // Parameterized Constructor
+    public Subcontractor(string name, string number, DateTime startDate, int shift, double hourlyPayRate)
+        : base(name, number, startDate)
+    {
+        this.shift = shift;
+        this.hourlyPayRate = hourlyPayRate;
+    }
+
+    // Accessor and Mutator for Shift
+    public int Shift
+    {
+        get { return shift; }
+        set { shift = value; }
+    }
+
+    // Accessor and Mutator for HourlyPayRate
+    public double HourlyPayRate
+    {
+        get { return hourlyPayRate; }
+        set { hourlyPayRate = value; }
+    }
+
+    // Method to compute pay
+    public float ComputePay(int hoursWorked)
+    {
+        double totalPay = hourlyPayRate * hoursWorked;
+
+        // Apply 3% shift differential for night shift
+        if (shift == 2)
+        {
+            totalPay *= 1.03;
+        }
+
+        return (float)totalPay;
+    }
+
+    // Override DisplayDetails
+    public override void DisplayDetails()
+    {
+        base.DisplayDetails();
+        Console.WriteLine($"Shift: {(shift == 1 ? "Day" : "Night")}");
+        Console.WriteLine($"Hourly Pay Rate: {hourlyPayRate:C}");
+    }
+}
